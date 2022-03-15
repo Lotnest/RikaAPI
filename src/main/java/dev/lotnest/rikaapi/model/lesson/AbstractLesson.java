@@ -15,10 +15,10 @@ public class AbstractLesson {
 
     private final @NotNull EnumSemester semester = PlanRegistry.CURRENT_SEMESTER;
     private final int semesterNumber = semester.getNumber();
-    private @NotNull LocalDateTime startTime;
-    private @NotNull LocalDateTime endTime;
-    private @NotNull String code;
-    private @NotNull EnumLessonType type;
+    private final @NotNull LocalDateTime startTime;
+    private final @NotNull LocalDateTime endTime;
+    private final @NotNull String code;
+    private final @NotNull EnumLessonType type;
     private final @NotNull String identifyingKeyword = type.getIdentifyingKeyword();
-    private @NotNull String room;
+    private final @NotNull String room;
 }
