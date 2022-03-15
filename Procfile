@@ -1,1 +1,1 @@
-worker: java -jar target/RikaAPI.war
+web: java -jar target/RikaAPI.war
