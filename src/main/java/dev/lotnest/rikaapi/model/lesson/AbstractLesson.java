@@ -1,6 +1,5 @@
 package dev.lotnest.rikaapi.model.lesson;
 
-import dev.lotnest.rikaapi.enums.EnumLessonType;
 import dev.lotnest.rikaapi.registry.PlanRegistry;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +15,6 @@ public class AbstractLesson {
     private @NotNull LocalDateTime startTime;
     private @NotNull LocalDateTime endTime;
     private @NotNull String code;
-    private @NotNull EnumLessonType type;
+    private @NotNull String type;
     private @NotNull String room;
 }
