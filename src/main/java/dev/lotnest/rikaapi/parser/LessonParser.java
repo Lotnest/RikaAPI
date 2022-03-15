@@ -2,6 +2,7 @@ package dev.lotnest.rikaapi.parser;
 
 import dev.lotnest.rikaapi.enums.EnumLessonType;
 import dev.lotnest.rikaapi.model.lesson.AbstractLesson;
+import dev.lotnest.rikaapi.model.lesson.impl.ExamLesson;
 import dev.lotnest.rikaapi.model.lesson.impl.ExerciseLesson;
 import dev.lotnest.rikaapi.model.lesson.impl.LanguageLesson;
 import dev.lotnest.rikaapi.model.lesson.impl.LectureLesson;
@@ -35,6 +36,7 @@ public class LessonParser {
             case LECTURE -> new LectureLesson(startTime, endTime, code, room);
             case EXERCISE -> new ExerciseLesson(startTime, endTime, code, room);
             case LANGUAGE -> new LanguageLesson(startTime, endTime, code, room);
+            case EXAM -> new ExamLesson(startTime, endTime, code, room);
             default -> new AbstractLesson(startTime, endTime, code, type, room) {
                 @Override
                 public @NotNull LocalDateTime getStartTime() {

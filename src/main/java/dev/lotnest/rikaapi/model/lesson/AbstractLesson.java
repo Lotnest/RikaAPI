@@ -4,12 +4,10 @@ import dev.lotnest.rikaapi.enums.EnumLessonType;
 import dev.lotnest.rikaapi.enums.EnumSemester;
 import dev.lotnest.rikaapi.registry.PlanRegistry;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
 
-@RequiredArgsConstructor
 @Getter
 public class AbstractLesson {
 
@@ -19,6 +17,15 @@ public class AbstractLesson {
     private final @NotNull LocalDateTime endTime;
     private final @NotNull String code;
     private final @NotNull EnumLessonType type;
-    private final @NotNull String identifyingKeyword = type.getIdentifyingKeyword();
+    private final @NotNull String identifyingKeyword;
     private final @NotNull String room;
+
+    public AbstractLesson(@NotNull LocalDateTime startTime, @NotNull LocalDateTime endTime, @NotNull String code, @NotNull EnumLessonType type, @NotNull String room) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.code = code;
+        this.type = type;
+        this.room = room;
+        identifyingKeyword = type.getIdentifyingKeyword();
+    }
 }
