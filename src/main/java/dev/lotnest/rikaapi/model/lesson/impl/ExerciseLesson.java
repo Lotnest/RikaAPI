@@ -9,6 +9,6 @@ import java.time.LocalDateTime;
 public class ExerciseLesson extends AbstractLesson {
 
     public ExerciseLesson(@NotNull LocalDateTime startTime, @NotNull LocalDateTime endTime, @NotNull String code, @NotNull String room) {
-        super(startTime, endTime, code, EnumLessonType.EXERCISE.getIdentifyingKeyword(), room);
+        super(startTime, endTime, code, EnumLessonType.EXERCISE, room);
     }
 }

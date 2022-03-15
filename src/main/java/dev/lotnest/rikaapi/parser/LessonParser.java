@@ -35,7 +35,7 @@ public class LessonParser {
             case LECTURE -> new LectureLesson(startTime, endTime, code, room);
             case EXERCISE -> new ExerciseLesson(startTime, endTime, code, room);
             case LANGUAGE -> new LanguageLesson(startTime, endTime, code, room);
-            default -> new AbstractLesson(startTime, endTime, code, type.getIdentifyingKeyword(), room) {
+            default -> new AbstractLesson(startTime, endTime, code, type, room) {
                 @Override
                 public @NotNull LocalDateTime getStartTime() {
                     return startTime;
@@ -52,8 +52,8 @@ public class LessonParser {
                 }
 
                 @Override
-                public @NotNull String getType() {
-                    return type.getIdentifyingKeyword();
+                public @NotNull EnumLessonType getType() {
+                    return type;
                 }
 
                 @Override
