@@ -9,6 +9,6 @@ import java.time.LocalDateTime;
 public class LectureLesson extends AbstractLesson {
 
     public LectureLesson(@NotNull LocalDateTime startTime, @NotNull LocalDateTime endTime, @NotNull String code, @NotNull String room) {
-        super(startTime, endTime, code, EnumLessonType.LECTURE, room);
+        super(startTime, endTime, code, EnumLessonType.LECTURE.getIdentifyingKeyword(), room);
     }
 }
