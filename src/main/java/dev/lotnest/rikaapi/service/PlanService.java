@@ -3,6 +3,7 @@ package dev.lotnest.rikaapi.service;
 import dev.lotnest.rikaapi.model.lesson.AbstractLesson;
 import dev.lotnest.rikaapi.model.lesson.Plan;
 import dev.lotnest.rikaapi.registry.PlanRegistry;
+import dev.lotnest.rikaapi.utils.TimeUtils;
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,7 @@ public class PlanService {
                 .filter(lesson -> isStartTimeAfterOrEqual(lesson.getStartTime(), startTime) &&
                         isEndTimeBeforeOrEqual(lesson.getEndTime(), endTime))
                 .limit(limit)
+                .peek(lesson -> lesson.setTimeLeft(TimeUtils.getTimeLeftString(lesson.getStartTime())))
                 .collect(Collectors.toList()), EXECUTOR_SERVICE);
     }
 
