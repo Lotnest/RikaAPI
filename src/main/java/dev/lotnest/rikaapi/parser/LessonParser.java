@@ -24,7 +24,7 @@ public class LessonParser {
 
     public @NotNull Optional<EnumLessonType> parseType() {
         for (EnumLessonType lessonType : EnumLessonType.values()) {
-            if (textToParse.contains(lessonType.getIdentifyingKeyword())) {
+            if (textToParse.contains(lessonType.getTypeName())) {
                 return Optional.of(lessonType);
             }
         }

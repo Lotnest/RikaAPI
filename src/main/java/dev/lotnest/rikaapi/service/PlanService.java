@@ -51,7 +51,11 @@ public class PlanService {
                 .get(0);
     }
 
+    @SneakyThrows
     public @NotNull List<AbstractLesson> getLessons() {
-        return CURRENT_PLAN.getLessons();
+        return CompletableFuture.supplyAsync(() -> CURRENT_PLAN.getLessons().stream()
+                        .peek(lesson -> lesson.setTimeLeft(TimeUtils.getTimeLeftString(lesson.getStartTime())))
+                        .collect(Collectors.toList()), EXECUTOR_SERVICE)
+                .get(10L, TimeUnit.SECONDS);
     }
 }

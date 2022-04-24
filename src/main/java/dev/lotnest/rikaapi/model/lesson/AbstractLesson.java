@@ -3,7 +3,6 @@ package dev.lotnest.rikaapi.model.lesson;
 import dev.lotnest.rikaapi.enums.EnumLessonType;
 import dev.lotnest.rikaapi.enums.EnumSemester;
 import dev.lotnest.rikaapi.registry.PlanRegistry;
-import dev.lotnest.rikaapi.utils.TimeUtils;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
@@ -20,7 +19,7 @@ public class AbstractLesson {
     private final @NotNull LocalDateTime endTime;
     private final @NotNull String code;
     private final @NotNull EnumLessonType type;
-    private final @NotNull String identifyingKeyword;
+    private final @NotNull String typeName;
     private final @NotNull String room;
     @Setter
     private @Nullable String timeLeft;
@@ -31,6 +30,6 @@ public class AbstractLesson {
         this.code = code;
         this.type = type;
         this.room = room;
-        identifyingKeyword = type.getIdentifyingKeyword();
+        typeName = type.getTypeName();
     }
 }

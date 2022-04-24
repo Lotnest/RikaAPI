@@ -15,13 +15,13 @@ public enum EnumLessonType {
     UNKNOWN("nieznany");
 
     @NotNull
-    private final String identifyingKeyword;
+    private final String typeName;
 
     @Override
     public String toString() {
         if (this.equals(EnumLessonType.LANGUAGE)) {
             return "lektorat";
         }
-        return identifyingKeyword;
+        return typeName;
     }
 }

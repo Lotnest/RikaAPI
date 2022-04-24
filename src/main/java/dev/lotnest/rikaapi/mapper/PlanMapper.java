@@ -72,7 +72,7 @@ public class PlanMapper {
     private EnumLessonType findExamKeyword(String @NotNull [] summary) {
         int examKeywordIndex = -1;
         for (int i = 0; i < summary.length; i++) {
-            if (summary[i].equals(EnumLessonType.EXAM.getIdentifyingKeyword())) {
+            if (summary[i].equals(EnumLessonType.EXAM.getTypeName())) {
                 examKeywordIndex = i;
             }
         }
@@ -91,8 +91,8 @@ public class PlanMapper {
         } else {
             StringBuilder lessonRoomBuilder = new StringBuilder();
             for (int i = 3; i < summary.length; i++) {
-                if (!Objects.equals(summary[i], EnumLessonType.LANGUAGE.getIdentifyingKeyword())
-                        && !Objects.equals(summary[i], EnumLessonType.EXAM.getIdentifyingKeyword())
+                if (!Objects.equals(summary[i], EnumLessonType.LANGUAGE.getTypeName())
+                        && !Objects.equals(summary[i], EnumLessonType.EXAM.getTypeName())
                         && !summary[i].equals("s.")) {
                     lessonRoomBuilder.append(summary[i])
                             .append(" ");
